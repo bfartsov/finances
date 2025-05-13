@@ -9,7 +9,7 @@ st.set_page_config(
 
 
 def main():
-    # login()
+    login()
     load_categories()
     st.title("Finances Dashboard")
     render_uploaded_file_section()
