@@ -112,9 +112,7 @@ def load_transactions(uploaded_file):
                 .str.replace("-", "")
                 .astype(float)
             )
-            df["Date"] = pd.to_datetime(
-                df["Completed Date"], format="%Y-%m-%d %H:%M:%S"
-            )
+            df["Date"] = pd.to_datetime(df["Started Date"], format="%Y-%m-%d %H:%M:%S")
             combined_df = (
                 pd.concat([combined_df, df]) if combined_df is not None else df
             )
