@@ -37,7 +37,7 @@ def render_uploaded_file_section():
     if uploaded_file:
         df = load_transactions(uploaded_file)
         if df is not None and "Type" in df.columns:
-            debits_df = df[df["Type"] == EXPENSE_TYPE].copy()
+            debits_df = df[df["Type"].isin(EXPENSE_TYPE)].copy()
             credits_df = df[df["Type"] == INCOME_TYPE].copy()
             render_df(debits_df, credits_df, key_prefix="file_")
 
